@@ -1,0 +1,28 @@
+{
+  "name": "cumdb",
+  "version": "0.0.1",
+  "description": "cumdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "arasemr12 <arasemr1234@gmail.com> (https://arasemr12.tk/)",
+  "license": "MIT",
+  "dependencies": {
+    "bson": "^4.7.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arasemr12/cumdb.git"
+  },
+  "keywords": [
+    "database",
+    "mongodb",
+    "bson"
+  ],
+  "bugs": {
+    "url": "https://github.com/arasemr12/cumdb/issues"
+  },
+  "homepage": "https://github.com/arasemr12/cumdb#readme"
+}
