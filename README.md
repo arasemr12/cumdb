@@ -1,1 +1,3 @@
 # cumdb
+
+Bson database.
