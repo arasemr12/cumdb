@@ -1,14 +1,15 @@
 const bson = require('bson');
 const fs = require('fs');
 
-async function getall(){
-    let exit = await fs.existsSync("db.cum");
-    if(!exit) await fs.appendFileSync("db.cum","");
+function getall(){
+    let exit = fs.existsSync("db.cum");
+    if(!exit) fs.appendFileSync("db.cum","");
 
-    let data = await fs.readFileSync("db.cum");
+    let data = fs.readFileSync("db.cum");
+
     if(data.length <= 0) {
-        data = await bson.serialize("");
-        await fs.writeFileSync("db.cum",data);
+        data = bson.serialize("");
+        fs.writeFileSync("db.cum",data);
         return data;
     }
 
@@ -17,20 +18,32 @@ async function getall(){
     return data;
 }
 
-async function set(name,data){
-    let all = await getall();
+function set(name,data){
+    let all = getall();
 
     all[name] = data;
 
     all = bson.serialize(all);
 
-    await fs.writeFileSync("db.cum",all);
+    fs.writeFileSync("db.cum",all);
 }
 
-async function get(name){
-    let all = await getall();
+function get(name){
+    let all = getall();
 
     return all[name];
 }
 
-module.exports = {set,getall,get};
+function del(name){
+    let all = getall();
+
+    delete all[name];
+
+    all = bson.serialize(all);
+
+    fs.writeFileSync("db.cum",all);
+
+    return all;
+}
+
+module.exports = {set,getall,get,del};

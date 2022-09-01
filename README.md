@@ -8,12 +8,15 @@ Bson database.
 const cumdb = require('cumdb');
 
 (async() => {
-    await cumdb.set("post_9294018294",{title:"hello",content:"Hello world!"});
+    const cumdb = require('cumdb');
 
-    let db = await cumdb.getall();
-    let find = await cumdb.get("post_9294018294");
+    cumdb.set("post_84923492",{title:"omg"});
+    cumdb.del("post_84923492");
 
-    console.log(`All posts: ${db}`);
-    console.log(`Post 9294018294: ${find}`);
+    let db = cumdb.getall();
+
+    let find = cumdb.get("post_84923492");
+    
+    console.log(find)
 })();
 ```
